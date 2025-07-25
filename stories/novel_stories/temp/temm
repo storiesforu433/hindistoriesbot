@@ -1,1 +1,23 @@
+Word files are binary formats (or complex XML structures for .docx). They are not plain text.
 
+To get the story content from a Word file, your bot would need a specialized Python library (like python-docx for .docx files or pywin32 for older .doc files, though the latter is Windows-specific and less ideal for a bot).
+
+Extracting text from Word documents is much more complicated than reading a plain text or Markdown file. It involves parsing the document structure, handling different fonts, images, tables, and other formatting elements, which can be prone to errors and often doesn't give clean text.
+
+Display in Telegram:
+
+Similar to PDFs, you cannot display the rich content of a Word document directly within the Telegram chat interface.
+
+You could send the .docx file as a document, but users would have to download and open it in a Word viewer on their device. This is not a "read in Telegram" experience.
+
+GitHub Handling:
+
+While GitHub can store .docx files, it doesn't process them for text content in the same way it does for .md or .txt files. You can't just decoded_content.decode('utf-8') a Word file and get readable text.
+
+Conclusion:
+
+Using Word files would introduce significant complexity and require a complete overhaul of the content fetching and display logic in your bot. It would move away from the simple "read stories in Telegram" experience towards a "download document to read" experience.
+
+Recommendation:
+
+Stick to Markdown (.md) or plain text (.txt) files. These are ideal for text-based stories that you want users to read directly within the Telegram chat, and they are easily processed by your bot
